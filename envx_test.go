@@ -1,4 +1,4 @@
-// Copyright (c) 2010 The Go Authors.
+// Copyright (c) 2010 The Go Authors
 // Copyright (c) 2020 Bojan Zivanovic
 // SPDX-License-Identifier: BSD-2-Clause
 
