@@ -5,6 +5,7 @@
 package envx_test
 
 import (
+	"os"
 	"testing"
 
 	"github.com/bojanz/envx"
@@ -63,6 +64,20 @@ var expandTests = []struct {
 	{"${APP_NAME:My App}", "My App"},
 	{"${PORT:80}", "80"},
 	{"${ADDR::80}", ":80"},
+}
+
+func TestGet(t *testing.T) {
+	v := envx.Get("LISTEN", "0.0.0.0:80")
+	if v != "0.0.0.0:80" {
+		t.Errorf("Get(LISTEN)=%q; expected %q", v, "0.0.0.0:80")
+	}
+
+	os.Setenv("LISTEN", "0.0.0.0:443")
+	v = envx.Get("LISTEN", "0.0.0.0:443")
+	if v != "0.0.0.0:443" {
+		t.Errorf("Get(LISTEN)=%q; expected %q", v, "0.0.0.0:443")
+	}
+	os.Unsetenv("LISTEN")
 }
 
 func TestExpand(t *testing.T) {

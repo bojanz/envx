@@ -2,13 +2,23 @@
 // Copyright (c) 2020 Bojan Zivanovic
 // SPDX-License-Identifier: BSD-2-Clause
 
-// Package envx allows expanding env variables with defaults: ${var:default}.
+// Package envx allows retrieving environment variables with a fallback.
 package envx
 
 import (
 	"os"
 	"strings"
 )
+
+// Get retrieves the value of the environment variable named by the key,
+// or the fallback if the environment variable is empty or not set.
+func Get(key, fallback string) string {
+	v := os.Getenv(key)
+	if v == "" {
+		v = fallback
+	}
+	return v
+}
 
 // Expand replaces ${var} or $var in the string according to the values
 // of the current environment variables. References to undefined
@@ -40,9 +50,8 @@ func ExpandFunc(s string, mapping func(string) string) string {
 				// name. Leave the dollar character untouched.
 				buf = append(buf, s[j])
 			} else {
-				// Replace the name, using a default value
-				// if defined. The next 6 lines is where this
-				// package diverges from stdlib.
+				// Replace the name, using a fallback if defined.
+				// The next 6 lines is where the func diverges from stdlib.
 				nameParts := strings.SplitN(name, ":", 2)
 				name := nameParts[0]
 				value := mapping(name)
