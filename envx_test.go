@@ -58,6 +58,7 @@ var expandTests = []struct {
 
 	// Defaults
 	{"${HOME:/srv}", "/usr/gopher"},
+	{"${WORKDIR:/srv}", "/srv"},
 	{"${APP_NAME}", ""},
 	{"${APP_NAME:My App}", "My App"},
 	{"${PORT:80}", "80"},

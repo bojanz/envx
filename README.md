@@ -3,6 +3,8 @@
 Allows expanding env variables with defaults: ${var:default}.
 
  ```go
-    // 0.0.0.0:80 if $PORT is missing or empty.
+    // "0.0.0.0:80" if $PORT is missing or empty.
     addr := envx.Expand("0.0.0.0:${PORT:80}")
+    // "/srv" if $WORKDIR is empty.
+    dir := envx.Expand("${WORKDIR:/srv}")
  ```
