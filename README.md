@@ -1,4 +1,4 @@
- # envx [![Build Status](https://travis-ci.org/bojanz/envx.png?branch=master)](https://travis-ci.org/bojanz/envx) [![Go Report Card](https://goreportcard.com/badge/github.com/bojanz/envx)](https://goreportcard.com/report/github.com/bojanz/envx) [![GoDoc](https://godoc.org/github.com/bojanz/envx?status.svg)](https://godoc.org/github.com/bojanz/envx)
+ # envx [![Build Status](https://travis-ci.org/bojanz/envx.png?branch=master)](https://travis-ci.org/bojanz/envx) [![Coverage Status](https://coveralls.io/repos/github/bojanz/envx/badge.svg?branch=master)](https://coveralls.io/github/bojanz/envx?branch=master) [![Go Report Card](https://goreportcard.com/badge/github.com/bojanz/envx)](https://goreportcard.com/report/github.com/bojanz/envx) [![GoDoc](https://godoc.org/github.com/bojanz/envx?status.svg)](https://godoc.org/github.com/bojanz/envx)
 
 Allows retrieving environment variables with a fallback.
 
